@@ -18,7 +18,7 @@ CREATE TABLE Customer (
 );
 GO
 
-CREATE TABLE OrderTable (
+CREATE TABLE Order (
     OrderID INT PRIMARY KEY,
     CustomerID INT FOREIGN KEY REFERENCES Customer(CustomerID),
     OrderDate DATE,
