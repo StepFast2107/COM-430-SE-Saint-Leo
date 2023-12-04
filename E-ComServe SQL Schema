@@ -1,0 +1,78 @@
+-- Create the database
+CREATE DATABASE E_ComServe;
+GO
+
+-- Switch to the newly created database
+USE E_ComServe;
+GO
+
+-- Create tables
+CREATE TABLE Customer (
+    CustomerID INT PRIMARY KEY,
+    FirstName NVARCHAR(255),
+    LastName NVARCHAR(255),
+    Email NVARCHAR(255),
+    PhoneNumber NVARCHAR(50),
+    Address NVARCHAR(500),
+    RegistrationDate DATE
+);
+GO
+
+CREATE TABLE OrderTable (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT FOREIGN KEY REFERENCES Customer(CustomerID),
+    OrderDate DATE,
+    DeliveryDate DATE,
+    Status NVARCHAR(50)
+);
+GO
+
+CREATE TABLE Product (
+    ProductID INT PRIMARY KEY,
+    ProductName NVARCHAR(255),
+    Price DECIMAL(10, 2),
+    StockQuantity INT
+);
+GO
+
+CREATE TABLE OrderDetails (
+    OrderDetailID INT PRIMARY KEY,
+    OrderID INT FOREIGN KEY REFERENCES OrderTable(OrderID),
+    ProductID INT FOREIGN KEY REFERENCES Product(ProductID),
+    Quantity INT,
+    Price DECIMAL(10, 2)
+);
+GO
+
+CREATE TABLE Feedback (
+    FeedbackID INT PRIMARY KEY,
+    CustomerID INT FOREIGN KEY REFERENCES Customer(CustomerID),
+    Date DATE,
+    Comments TEXT,
+    Rating INT
+);
+GO
+
+CREATE TABLE UserTable (
+    UserID INT PRIMARY KEY,
+    Username NVARCHAR(255),
+    Password NVARCHAR(255),
+    Role NVARCHAR(50)
+);
+GO
+
+CREATE TABLE LoginHistory (
+    LoginID INT PRIMARY KEY,
+    UserID INT FOREIGN KEY REFERENCES UserTable(UserID),
+    LoginTime DATETIME,
+    LogoutTime DATETIME
+);
+GO
+
+CREATE TABLE SystemSettings (
+    SettingID INT PRIMARY KEY,
+    SettingName NVARCHAR(255),
+    Value NVARCHAR(255),
+    LastUpdated DATETIME
+);
+GO
