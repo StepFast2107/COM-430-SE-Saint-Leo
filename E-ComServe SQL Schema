@@ -18,7 +18,7 @@ CREATE TABLE Customer (
 );
 GO
 
-CREATE TABLE Order (
+CREATE TABLE proOrder (
     OrderID INT PRIMARY KEY,
     CustomerID INT FOREIGN KEY REFERENCES Customer(CustomerID),
     OrderDate DATE,
@@ -37,7 +37,7 @@ GO
 
 CREATE TABLE OrderDetails (
     OrderDetailID INT PRIMARY KEY,
-    OrderID INT FOREIGN KEY REFERENCES OrderTable(OrderID),
+    OrderID INT FOREIGN KEY REFERENCES proOrder(OrderID),
     ProductID INT FOREIGN KEY REFERENCES Product(ProductID),
     Quantity INT,
     Price DECIMAL(10, 2)
