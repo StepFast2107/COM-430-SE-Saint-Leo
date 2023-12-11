@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #auth-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #signup-form {
+      display: none;
+    }
+
+    #toggle-btn {
+      background-color: #3498db;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="auth-container">
+    <h2>Login</h2>
+    <label for="login-username">Username:</label>
+    <input type="text" id="login-username" placeholder="Enter your username">
+
+    <label for="login-password">Password:</label>
+    <input type="password" id="login-password" placeholder="Enter your password">
+
+    <button onclick="login()">Login</button>
+
+    <p>Don't have an account? <button id="toggle-btn" onclick="toggleForm()">Sign Up</button></p>
+  </div>
+
+  <div id="signup-form">
+    <h2>Sign Up</h2>
+    <label for="signup-username">Username:</label>
+    <input type="text" id="signup-username" placeholder="Choose a username">
+
+    <label for="signup-password">Password:</label>
+    <input type="password" id="signup-password" placeholder="Choose a password">
+
+    <button onclick="signup()">Sign Up</button>
+
+    <p>Already have an account? <button id="toggle-btn" onclick="toggleForm()">Login</button></p>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById('login-username').value;
+      const password = document.getElementById('login-password').value;
+
+      if (username && password) {
+        alert('Login successful!');
+      } else {
+        alert('Please enter both username and password.');
+      }
+    }
+
+    function signup() {
+      alert('Sign up successful! You can now log in.');
+      toggleForm();
+    }
+
+    function toggleForm() {
+      const loginForm = document.getElementById('auth-container');
+      const signupForm = document.getElementById('signup-form');
+
+      loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
+      signupForm.style.display = signupForm.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+
+</body>
+</html>
