@@ -4,33 +4,28 @@ body {
     padding: 0;
     box-sizing: border-box;
     color: #333;
-    background-color: #f4f4f4;
+    background-color: #F4F4F4;
 }
-
 header {
-    background-color: #005f73;
+    background-color: #005F73;
     color: white;
     text-align: center;
     padding: 1em 0;
 }
-
 nav a {
     color: white;
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
 }
-
 nav a:hover {
     text-decoration: underline;
 }
-
 h2 {
-    color: #005f73;
+    color: #005F73;
     text-align: center;
     font-size: 2em;
 }
-
 section {
     padding: 20px;
     margin: 10px 0;
@@ -38,13 +33,11 @@ section {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
 .product-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
-
 .product {
     border: 1px solid #ddd;
     padding: 10px;
@@ -52,22 +45,44 @@ section {
     text-align: center;
     width: 200px;
 }
-
 .product img {
     max-width: 100%;
     height: auto;
     border-bottom: 1px solid #ddd;
     margin-bottom: 10px;
 }
-
+/* Styles for Login Section */
+#login {
+    text-align: center;
+    padding: 20px;
+}
+#login-form input,
+#login-form button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 1em;
+}
+/* Styles for Order Tracking Section */
+#tracking-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+#tracking-form label, #tracking-form input, #tracking-form button {
+    margin: 5px;
+}
+#tracking-results {
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: none; /* Hidden by default */
+}
 footer {
     background-color: #001219;
     color: white;
     text-align: center;
     padding: 1em 0;
 }
-
-/* Responsive design */
+/* Responsive Design */
 @media (max-width: 800px) {
     .product-list {
         flex-direction: column;
